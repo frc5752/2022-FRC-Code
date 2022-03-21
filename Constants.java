@@ -44,6 +44,7 @@ public final class Constants {
     public static final int kSpinnerBtn = 1; //4
     public static final int kUptakeBtn = 3; //1
     public static final int kShootBtn = 5; //2
+    public static final int kReverseUptakeBtn = 7;
     
 
     // Joystick Buttons

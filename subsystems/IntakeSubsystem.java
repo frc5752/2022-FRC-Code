@@ -6,7 +6,7 @@
   import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-//import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 
   /* this subsystem is for the 2 motors that control the intake of a ball */
   /* there's a motor that spins to get the ball - called the 'spinner' */
@@ -19,7 +19,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
     public static WPI_TalonSRX mActuatorMotor;
     
     //limit switches
-    //public static DigitalInput mFrontLimitSwitch;
+    public static DigitalInput mFrontLimitSwitch;
     //public static DigitalInput mBackLimitSwitch;
 
     // constructor
@@ -32,8 +32,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
       //limit switches 
       //!!CHECK THE PORTS ON THE LIMIT SWITCHES TO MAKE SURE THEY ARE RIGHT!!
       //we can set the port values as Constants later if we want to
-      //mFrontLimitSwitch = new DigitalInput(1); //set port value here
-      //mBackLimitSwitch = new DigitalInput(0); //set port value here
+      mFrontLimitSwitch = new DigitalInput(0); //set port value here
+      //mBackLimitSwitch = new DigitalInput(1); //set port value here
     }
     
     // Subsystem methods - actions the robot can take - should be placed here.
@@ -60,7 +60,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
     //}
     //new stuff ends here
     } 
-    
+	public boolean frontLimitSwitch()
+	{
+		return !mFrontLimitSwitch.get();
+	}
+
     public void setSpinnerMotor(double speed)
     {
       mSpinnerMotor.set(ControlMode.PercentOutput, speed);

@@ -13,6 +13,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousCommand;
 import frc.robot.commands.ExtendIntake;
 import frc.robot.commands.RetractIntake;
+import frc.robot.commands.ReverseUptake;
 import frc.robot.commands.SpinShooter;
 import frc.robot.commands.SpinSpinner;
 import frc.robot.commands.Uptake;
@@ -67,6 +68,7 @@ public class RobotContainer
         new JoystickButton(m_driverController, Constants.kIntakeRetractBtn).whenPressed( new RetractIntake(m_driverController) );
         new JoystickButton(m_driverController, Constants.kIntakeExtendBtn).whenPressed( new ExtendIntake(m_driverController) );
         new JoystickButton(m_driverController, Constants.kUptakeBtn).whenPressed( new Uptake(m_driverController) );
+        new JoystickButton(m_driverController, Constants.kReverseUptakeBtn).whenPressed( new ReverseUptake(m_driverController) );
         
         
     }

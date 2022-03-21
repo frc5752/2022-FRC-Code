@@ -35,7 +35,7 @@ public class ArcadeDrive_timed extends CommandBase {
   @Override
   public void execute() 
   { 
-    m_drivetrain.arcadeDrive(0.5*rotateSpeed, 0.5*moveSpeed);
+    m_drivetrain.arcadeDrive(0.5*rotateSpeed, 0.7*moveSpeed);
   }
   
   // Called once the command ends or is interrupted.
