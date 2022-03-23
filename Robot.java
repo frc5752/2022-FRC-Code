@@ -22,14 +22,7 @@ public class Robot extends TimedRobot
   private Command m_autonomousCommand;
   private RobotContainer robotContainer;
 
-  //public static DrivetrainSubsystem m_drivetrain;
-  
-  //public static IntakeSubsystem m_intake;
-  //public static ShooterSubsystem m_shooter;
-  //public static DriverStation m_driverstation;
-  //public static VisionSubsystem m_vision;
-  //public static Joystick m_driver_controller;
-  //public static OI oi;
+ 
   
   //public static SendableChooser<Command> autoChooser;
   
@@ -44,14 +37,6 @@ public class Robot extends TimedRobot
     robotContainer = new RobotContainer();
     robotContainer.robotInit();
 
-    //m_vision = VisionSubsystem.getInstance();
-    //m_drivetrain = DrivetrainSubsystem.getInstance();
-    //m_intake = IntakeSubsystem.getInstance();
-    //m_shooter = ShooterSubsystem.getInstance();
-    //m_driver_controller = new Joystick(Constants.Controls.DRIVE_CONTROLS);
-    //oi = OI.getInstance();
-
-    //m_drivetrain.setDefaultCommand(new ArcadeDrive(m_driver_controller));
   }
 
   /**
@@ -87,6 +72,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousInit() 
   {
+
     m_autonomousCommand = robotContainer.getAutonomousCommand();
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) 

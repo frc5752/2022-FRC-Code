@@ -30,21 +30,35 @@ public final class Constants {
     public static final int kMCIDActuator = 1; //intake actuator motor controller id (TalonSRX)
     public static final int kMCIDSpinner= 2; //intake spinner motor controller id (VictorSPX)
     public static final int kMCIDUptake = 3; //uptake motor controller id (TalonSRX)
-    public static final int kMCIDShooter = 5; //shooter motor controller id ( Spark max )
+	public static final int kMCIDShooter = 5; //shooter motor controller id ( Spark max )
+	public static final int kMCIDClimberMotor = 1; // Just a Spark
+	public static final int kMCIDDeployHookMotor = 6; // Spark Max
     
     
     public static final double kIntakeActuatorExtendSpeed = 0.5; // the speed of the motor that extends and retracts the intake arms (VictorSPX)
     public static final double kIntakeActuatorRetractSpeed = -0.5; // the speed of the motor that spins to bring a ball aboard (VictorSPX)
     public static final double kIntakeSpinnerSpeed = -1;  //the speed of the motor that spins to first grab the ball (VictorSPX)
     public static final double kUptakeSpeed = 0.75;  //0.75 the speed of the motor that spins to push the ball to the shooter motor (TalonSRX)
-    public static final double kShooterSpeed = -0.9;  //the speed of the motor that spins to shoot the ball (CAN Spark)
+	public static final double kShooterSpeed = -0.9;  //the speed of the motor that spins to shoot the ball (CAN Spark)
+	
+	public static final double kDeployHookSpeedUp = 0.5;
+	public static final double kDeployHookSpeedDown = -0.5;
+
+	public static final double kClimberUpSpeed = 0.5;
+	public static final double kClimberDownSpeed = -0.5;
     
     public static final int kIntakeExtendBtn = 6; //5
     public static final int kIntakeRetractBtn = 2; //3
     public static final int kSpinnerBtn = 1; //4
     public static final int kUptakeBtn = 3; //1
     public static final int kShootBtn = 5; //2
-    public static final int kReverseUptakeBtn = 7;
+	public static final int kReverseUptakeBtn = 7;
+	
+	public static final int kDeployHookUpBtn = 10;
+	public static final int kDeployHookDownBtn = 12;
+
+	public static final int kClimbUpBtn = 9;
+	public static final int kClimbDownBtn = 11;
     
 
     // Joystick Buttons

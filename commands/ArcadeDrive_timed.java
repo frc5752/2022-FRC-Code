@@ -15,6 +15,9 @@ public class ArcadeDrive_timed extends CommandBase {
   double timeout = 0;
   double moveSpeed = 0;
   double rotateSpeed = 0;
+
+  // for s>0 the machine moves in the reverse direction
+  // t is in seconds
   public ArcadeDrive_timed(double s, double t) 
   {
     timeout = t;
@@ -31,14 +34,12 @@ public class ArcadeDrive_timed extends CommandBase {
     my_timer.start();
   }
   
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() 
   { 
     m_drivetrain.arcadeDrive(0.5*rotateSpeed, 0.7*moveSpeed);
   }
   
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) 
   {

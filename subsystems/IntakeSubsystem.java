@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
     
     //limit switches
     public static DigitalInput mFrontLimitSwitch;
-    //public static DigitalInput mBackLimitSwitch;
+    public static DigitalInput mBackLimitSwitch;
 
     // constructor
     public IntakeSubsystem()
@@ -33,7 +33,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
       //!!CHECK THE PORTS ON THE LIMIT SWITCHES TO MAKE SURE THEY ARE RIGHT!!
       //we can set the port values as Constants later if we want to
       mFrontLimitSwitch = new DigitalInput(0); //set port value here
-      //mBackLimitSwitch = new DigitalInput(1); //set port value here
+      mBackLimitSwitch = new DigitalInput(1); //set port value here
     }
     
     // Subsystem methods - actions the robot can take - should be placed here.
@@ -62,7 +62,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
     } 
 	public boolean frontLimitSwitch()
 	{
-		return !mFrontLimitSwitch.get();
+		return mFrontLimitSwitch.get();
 	}
 
     public void setSpinnerMotor(double speed)

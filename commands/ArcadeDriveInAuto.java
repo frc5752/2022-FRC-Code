@@ -1,12 +1,15 @@
+// This command might be better if instead
+// it took distance as a parameter instead
+// of time (in seconds).  This could be
+// accomplished by using the navX's 
+// displacement data.
+
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DrivetrainSubsystem;
-import frc.robot.subsystems.ShooterSubsystem;
 
 public class ArcadeDriveInAuto extends CommandBase
 {  
