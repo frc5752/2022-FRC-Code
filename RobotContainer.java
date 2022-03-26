@@ -1,19 +1,11 @@
 package frc.robot;
 
-import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.command.WaitCommand;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
-import frc.robot.commands.ArcadeDrive_timed;
 import frc.robot.commands.AutonomousCommand;
 import frc.robot.commands.ClimberDown;
 import frc.robot.commands.ClimberUp;
@@ -32,13 +24,7 @@ import frc.robot.subsystems.ShooterSubsystem;
 
 public class RobotContainer 
 {
-    SendableChooser<Command> autoChooser;
-
 	// Subsystems
-	// 2022 03 22 - mkpellegrino
-
-	public static AHRS ahrs;
-
 	public final static DrivetrainSubsystem m_drivetrain = new DrivetrainSubsystem();
     public final static ShooterSubsystem m_shooter = new ShooterSubsystem();
     public final static IntakeSubsystem m_intake = new IntakeSubsystem();
@@ -46,31 +32,21 @@ public class RobotContainer
     //public final static VisionSubsystem m_vision = new VisionSubsystem();
     private final Joystick m_driverController = new Joystick(0);
     
-    private /*final*/ Command m_autoCommand; // = new AutonomousCommand();
+    // This is the command that will execute in Autonomous Mode
+    private final Command m_autoCommand = new AutonomousCommand();
     
     /**
     * The container for the robot. Contains subsystems, OI devices, and commands.
     */
     public RobotContainer() 
     {
-        // mkpellegrino - 2022 03 23
-        autoChooser = new SendableChooser<Command>();
-        autoChooser.setDefaultOption("<Select a command>", null);
-        autoChooser.addOption("Shoot and Go", new AutonomousCommand());
-        autoChooser.addOption("Just Go", new ArcadeDrive_timed(0.75, 1));
-        SmartDashboard.putData("Init/Auto Selector", autoChooser);
-
 
         // if you want to process the camera feed and have it automatically
         // identify targets, comment out the two lines below and uncomment the 
 		// "public final static VisionSubsystem m_vision... line above
-
-	
         UsbCamera camera = CameraServer.startAutomaticCapture(); // line to comment out
         camera.setResolution(640, 480); //                       // the other line to comment out
 	
-	
-
         configureButtonBindings();
 	
         // This is going to perpetually run while in TeleOp
@@ -109,25 +85,7 @@ public class RobotContainer
     */
     public void robotInit() 
     {
-		// mkpellegrino - 2022 03 22
-		try
-		{
-			ahrs = new AHRS(SPI.Port.kMXP);
-			//ahrs.reset();
-			//ahrs.zeroYaw();
-	
-		}
-		catch (RuntimeException e)
-		{
-			DriverStation.reportError("*** navx-mxp not connected.  Error: " + e.getMessage() + " ***", true);
-		}
 
-		// Clean out the SmartDashboard Values of Old
-		for( int i=0; i<=9; i++ )
-		{
-			showOnDash(i, "");
-		}
-	
     }
     
     /**
@@ -152,18 +110,9 @@ public class RobotContainer
     */
     public Command getAutonomousCommand()
     {
-        m_autoCommand = autoChooser.getSelected();
         return m_autoCommand;
 	}
 	
-	public void showOnDash(int x, String y )
-	{
-		if( ( x>=0 )&&( x<=9 ) )
-		{
-			String s = new String( "DB/String " + Integer.toString(x) );
-			SmartDashboard.putString( s, y );
-		}
 
-	}
 } 
         

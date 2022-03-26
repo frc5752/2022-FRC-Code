@@ -16,14 +16,13 @@ public class DrivetrainSubsystem extends SubsystemBase
   private CANSparkMax frontLeftMotor;
   private CANSparkMax backRightMotor;
   private CANSparkMax backLeftMotor;
-
+  
   DifferentialDrive differentialDrive;
   
   
   public DrivetrainSubsystem()
   {
     
-    //settings motors
     frontRightMotor = new CANSparkMax(Constants.DrivingTrain.FRONT_RIGHT_ID, MotorType.kBrushless);
     frontLeftMotor = new CANSparkMax(Constants.DrivingTrain.FRONT_LEFT_ID, MotorType.kBrushless);
     backRightMotor = new CANSparkMax(Constants.DrivingTrain.BACK_RIGHT_ID, MotorType.kBrushless);
@@ -32,8 +31,8 @@ public class DrivetrainSubsystem extends SubsystemBase
     MotorControllerGroup rightMotors = new MotorControllerGroup(frontRightMotor, backRightMotor);
     MotorControllerGroup leftMotors = new MotorControllerGroup(frontLeftMotor, backLeftMotor);
     
-	differentialDrive = new DifferentialDrive(rightMotors, leftMotors);
-	
+    differentialDrive = new DifferentialDrive(rightMotors, leftMotors);
+    
   }
   
   public void arcadeDrive(double moveSpeed, double rotateSpeed)
@@ -53,6 +52,6 @@ public class DrivetrainSubsystem extends SubsystemBase
   @Override
   public void periodic() 
   {
-	// This method will be called once per scheduler run
+    // This method will be called once per scheduler run
   }
 }

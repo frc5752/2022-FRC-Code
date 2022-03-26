@@ -15,6 +15,7 @@ public class ClimberDown extends CommandBase
     {
         mClimberSubsystem = RobotContainer.m_climber;
         mDriverController = m_driver_controller;
+        addRequirements(RobotContainer.m_climber);
     }
     
     @Override

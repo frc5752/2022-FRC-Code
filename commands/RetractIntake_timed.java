@@ -17,12 +17,15 @@ public class RetractIntake_timed extends CommandBase
     {
         mIntakeSubsystem = RobotContainer.m_intake;
         timeout = t;
+        addRequirements(RobotContainer.m_intake);
+
     }
     
     
     @Override
     public void initialize()
     {
+        if( mIntakeSubsystem.backLimitSwitch() ) return;
         my_timer.reset();
         mIntakeSubsystem.setActuatorMotor(Constants.kIntakeActuatorRetractSpeed);
         my_timer.start();
@@ -39,7 +42,7 @@ public class RetractIntake_timed extends CommandBase
     public boolean isFinished()
     {
         
-        return my_timer.hasElapsed(timeout);
+        return (my_timer.hasElapsed(timeout) || mIntakeSubsystem.backLimitSwitch());
     }
     
     @Override

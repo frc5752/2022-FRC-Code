@@ -24,7 +24,7 @@ public class SpinShooter_timed extends CommandBase
     public void initialize()
     {
         my_timer.reset();
-        mShooterSubsystem.setShooterMotor(Constants.kShooterSpeed);
+        mShooterSubsystem.setShooterMotor(Constants.kShooterSpeedInAuto);
         my_timer.start();
         
     }

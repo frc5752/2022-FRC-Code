@@ -1,23 +1,26 @@
+// This command might be better if instead
+// it took distance as a parameter instead
+// of time (in seconds).  This could be
+// accomplished by using the navX's 
+// displacement data.
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.DrivetrainSubsystem;
 
-public class SpinSpinner_timed extends CommandBase
+public class ArcadeDriveIn_timed extends CommandBase
 {  
-    public static IntakeSubsystem mIntakeSubsystem;
+    public static DrivetrainSubsystem mDrivetrainSubsystem;
     Timer my_timer = new Timer();
     double timeout = 0;
 
-    public SpinSpinner_timed( double t )
+    public ArcadeDriveIn_timed( double t )
     {
-        mIntakeSubsystem = RobotContainer.m_intake;
+        mDrivetrainSubsystem = RobotContainer.m_drivetrain;
         timeout = t;
-        //addRequirements(RobotContainer.m_intake);
-
     }
     
     
@@ -25,7 +28,7 @@ public class SpinSpinner_timed extends CommandBase
     public void initialize()
     {
         my_timer.reset();
-        mIntakeSubsystem.setSpinnerMotor(Constants.kIntakeSpinnerSpeed);
+        mDrivetrainSubsystem. arcadeDrive(0.5, 0);
         my_timer.start();
     }
     
@@ -43,6 +46,6 @@ public class SpinSpinner_timed extends CommandBase
     @Override
     public void end(boolean interrupted)
     {
-        mIntakeSubsystem.setSpinnerMotor(0);
+        mDrivetrainSubsystem.arcadeDrive(0,0);
     }
 }

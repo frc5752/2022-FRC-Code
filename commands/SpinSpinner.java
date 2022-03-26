@@ -21,6 +21,7 @@ public class SpinSpinner extends CommandBase
     {
         mDriverController = m_driver_controller;
         mIntakeSubsystem = RobotContainer.m_intake;
+        //addRequirements(RobotContainer.m_intake);
     }
     
     
